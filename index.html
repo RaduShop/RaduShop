@@ -3,150 +3,315 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Tienda de Ropa FiveM</title>
+    <title>RaduShop | Custom Clothing</title>
     <style>
-        /* Estilos generales */
+        /* Variables de color estéticas */
+        :root {
+            --bg-principal: #0b0b0f;
+            --bg-tarjeta: #13131a;
+            --bg-nav: #161622;
+            --accento: #a855f7; /* Morado neón estético */
+            --accento-hover: #c084fc;
+            --texto-blanco: #f3f4f6;
+            --texto-gris: #9ca3af;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: var(--bg-principal);
+            color: var(--texto-blanco);
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* NAVBAR MODERNA */
+        .navbar {
+            background-color: var(--bg-nav);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #232335;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(45deg, #fff, var(--accento));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
             margin: 0;
             padding: 0;
         }
 
-        header {
-            background-color: #1a1a1a;
-            padding: 20px;
+        .nav-links a {
+            color: var(--texto-gris);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accento);
+        }
+
+        /* HEADER / HERO */
+        .hero {
             text-align: center;
-            border-bottom: 2px solid #7289da; /* Color estilo Discord */
+            padding: 60px 20px;
+            background: radial-gradient(circle at top, rgba(168,85,247,0.15) 0%, transparent 60%);
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #7289da;
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            font-weight: 900;
         }
 
-        header p {
-            margin: 5px 0 0 0;
-            color: #aaaaaa;
+        .hero p {
+            color: var(--texto-gris);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
-        /* Contenedor de productos */
+        /* SECCIONES DE ROPA */
+        .section-title {
+            max-width: 1200px;
+            margin: 50px auto 20px auto;
+            padding: 0 20px;
+            font-size: 1.8rem;
+            border-left: 4px solid var(--accento);
+            padding-left: 15px;
+        }
+
         .container {
             max-width: 1200px;
-            margin: 30px auto;
+            margin: 0 auto 50px auto;
             padding: 0 20px;
         }
 
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            gap: 25px;
         }
 
-        /* Tarjeta de producto */
+        /* TARJETAS ESTÉTICAS */
         .card {
-            background-color: #1e1e1e;
-            border-radius: 8px;
+            background-color: var(--bg-tarjeta);
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-            transition: transform 0.2s;
+            border: 1px solid #1f1f2e;
+            transition: transform 0.3s, border-color 0.3s;
         }
 
         .card:hover {
             transform: translateY(-5px);
+            border-color: var(--accento);
+        }
+
+        .card-img-container {
+            width: 100%;
+            height: 320px;
+            background-color: #1a1a26;
+            position: relative;
         }
 
         .card img {
             width: 100%;
-            height: 250px;
+            height: 100%;
             object-fit: cover;
         }
 
         .card-info {
-            padding: 15px;
+            padding: 20px;
         }
 
         .card-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.3rem;
+            margin: 0 0 8px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .tag {
+            display: inline-block;
+            background: rgba(168, 85, 247, 0.1);
+            color: var(--accento);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
         }
 
         .price {
-            font-size: 1.2rem;
-            color: #43b581; /* Verde éxito */
-            font-weight: bold;
+            font-size: 1.3rem;
+            color: #fff;
+            font-weight: 700;
             margin-bottom: 15px;
         }
 
-        /* Botón de compra */
+        /* BOTÓN DE COMPRA */
         .btn-buy {
             display: block;
             text-align: center;
-            background-color: #7289da;
-            color: white;
+            background-color: var(--accento);
+            color: #fff;
             text-decoration: none;
-            padding: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: background-color 0.2s;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
 
         .btn-buy:hover {
-            background-color: #5b73c7;
+            background-color: var(--accento-hover);
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
         }
 
         footer {
             text-align: center;
             padding: 40px 20px;
-            color: #666;
+            border-top: 1px solid #1f1f2e;
+            color: var(--texto-gris);
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Custom Clothes Shop</h1>
-        <p>La mejor ropa personalizada para tu servidor de FiveM</p>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">RADUSHOP</div>
+            <ul class="nav-links">
+                <li><a href="#partes-arriba">Tops</a></li>
+                <li><a href="#pantalones">Pantalones</a></li>
+                <li><a href="#accesorios">Accesorios</a></li>
+                <li><a href="#chalecos">Chalecos</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>RADUSHOP CUSTOM</h1>
+        <p>Ropa exclusiva, optimizada y con el mejor estilo para servidores de FiveM.</p>
     </header>
 
+    <h2 id="partes-arriba" class="section-title">Polos & Camisetas</h2>
     <div class="container">
         <div class="grid">
-            
             <div class="card">
-                <img src="pack1.jpg" alt="Pack de Ropa Urbana">
+                <div class="card-img-container">
+                    <img src="polo.jpg" alt="Polo Personalizado">
+                </div>
                 <div class="card-info">
-                    <h3>Pack Urbano Repes</h3>
-                    <div class="price">15.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                    <span class="tag">Polo</span>
+                    <h3>Polo Custom Hype</h3>
+                    <div class="price">12.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
                 </div>
             </div>
 
             <div class="card">
-                <img src="pack2.jpg" alt="Uniformes de Policía">
-                <div class="card-info">
-                    <h3>EUP Uniformes de Policía</h3>
-                    <div class="price">25.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                <div class="card-img-container">
+                    <img src="camiseta.jpg" alt="Camiseta">
                 </div>
-            </div>
-
-            <div class="card">
-                <img src="pack3.jpg" alt="Cadenas y Joyas">
                 <div class="card-info">
-                    <h3>Pack Joyas ICED</h3>
+                    <span class="tag">Camiseta</span>
+                    <h3>Camiseta Oversize</h3>
                     <div class="price">10.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
                 </div>
             </div>
 
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="camiseta_pegada.jpg" alt="Camiseta Pegada">
+                </div>
+                <div class="card-info">
+                    <span class="tag">Camiseta Pegada</span>
+                    <h3>Camiseta Gym Compression</h3>
+                    <div class="price">12.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="pantalones" class="section-title">Pantalones</h2>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="pantalones.jpg" alt="Pantalones">
+                </div>
+                <div class="card-info">
+                    <span class="tag">Pantalones</span>
+                    <h3>Pantallón Cargo Streetwear</h3>
+                    <div class="price">15.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="chalecos" class="section-title">Chalecos Tacticos</h2>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="chaleco.jpg" alt="Chaleco">
+                </div>
+                <div class="card-info">
+                    <span class="tag">Chaleco</span>
+                    <h3>Chaleco Antibalas Deluxe</h3>
+                    <div class="price">18.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="accesorios" class="section-title">Máscaras & Accesorios</h2>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="mascara.jpg" alt="Mascara">
+                </div>
+                <div class="card-info">
+                    <span class="tag">Máscara</span>
+                    <h3>Máscara Clout Goggles</h3>
+                    <div class="price">8.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                </div>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 TuTiendaFiveM. Diseñado para GitHub Pages.</p>
+        <p>&copy; 2026 RaduShop. Todos los derechos reservados.</p>
     </footer>
 
 </body>
