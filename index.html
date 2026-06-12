@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Tienda de Ropa FiveM</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #7289da; /* Color estilo Discord */
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #7289da;
+        }
+
+        header p {
+            margin: 5px 0 0 0;
+            color: #aaaaaa;
+        }
+
+        /* Contenedor de productos */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        /* Tarjeta de producto */
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.3rem;
+        }
+
+        .price {
+            font-size: 1.2rem;
+            color: #43b581; /* Verde éxito */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        /* Botón de compra */
+        .btn-buy {
+            display: block;
+            text-align: center;
+            background-color: #7289da;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn-buy:hover {
+            background-color: #5b73c7;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Custom Clothes Shop</h1>
+        <p>La mejor ropa personalizada para tu servidor de FiveM</p>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            
+            <div class="card">
+                <img src="pack1.jpg" alt="Pack de Ropa Urbana">
+                <div class="card-info">
+                    <h3>Pack Urbano Repes</h3>
+                    <div class="price">15.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="pack2.jpg" alt="Uniformes de Policía">
+                <div class="card-info">
+                    <h3>EUP Uniformes de Policía</h3>
+                    <div class="price">25.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="pack3.jpg" alt="Cadenas y Joyas">
+                <div class="card-info">
+                    <h3>Pack Joyas ICED</h3>
+                    <div class="price">10.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar / Info</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 TuTiendaFiveM. Diseñado para GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
