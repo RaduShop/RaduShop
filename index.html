@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RaduShop | Custom Clothing</title>
     <style>
-        /* Variables de color estéticas */
         :root {
             --bg-principal: #0b0b0f;
             --bg-tarjeta: #13131a;
             --bg-nav: #161622;
-            --accento: #a855f7; /* Morado neón estético */
+            --accento: #a855f7;
             --accento-hover: #c084fc;
             --texto-blanco: #f3f4f6;
             --texto-gris: #9ca3af;
@@ -25,7 +24,6 @@
             scroll-behavior: smooth;
         }
 
-        /* NAVBAR MODERNA */
         .navbar {
             background-color: var(--bg-nav);
             position: sticky;
@@ -73,7 +71,6 @@
             color: var(--accento);
         }
 
-        /* HEADER / HERO */
         .hero {
             text-align: center;
             padding: 60px 20px;
@@ -93,7 +90,6 @@
             margin: 0 auto;
         }
 
-        /* SECCIONES DE ROPA */
         .section-title {
             max-width: 1200px;
             margin: 50px auto 20px auto;
@@ -115,7 +111,6 @@
             gap: 25px;
         }
 
-        /* TARJETAS ESTÉTICAS */
         .card {
             background-color: var(--bg-tarjeta);
             border-radius: 12px;
@@ -152,18 +147,6 @@
             font-weight: 600;
         }
 
-        .tag {
-            display: inline-block;
-            background: rgba(168, 85, 247, 0.1);
-            color: var(--accento);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-        }
-
         .price {
             font-size: 1.3rem;
             color: #fff;
@@ -171,7 +154,6 @@
             margin-bottom: 15px;
         }
 
-        /* BOTÓN DE COMPRA */
         .btn-buy {
             display: block;
             text-align: center;
@@ -205,31 +187,40 @@
         <div class="nav-container">
             <div class="logo">RADUSHOP</div>
             <ul class="nav-links">
-                <li><a href="#partes-arriba">Tops</a></li>
-                <li><a href="#pantalones">Pantalones</a></li>
-                <li><a href="#accesorios">Accesorios</a></li>
-                <li><a href="#chalecos">Chalecos</a></li>
+                <li><a href="#ropa">Ropa</a></li>
+                <li><a href="#armas">Armas</a></li>
+                <li><a href="#packs">Packs 🔥</a></li>
             </ul>
         </div>
     </nav>
 
     <header class="hero">
-        <h1>RADUSHOP CUSTOM</h1>
-        <p>Ropa exclusiva, optimizada y con el mejor estilo para servidores de FiveM.</p>
+        <h1>RADUSHOP</h1>
+        <p>Contenido personalizado para FiveM.</p>
     </header>
 
-    <h2 id="partes-arriba" class="section-title">Polos & Camisetas</h2>
+    <h2 id="ropa" class="section-title">Ropa</h2>
     <div class="container">
         <div class="grid">
             <div class="card">
                 <div class="card-img-container">
-                    <img src="polo.jpg" alt="Polo Personalizado">
+                    <img src="camiseta_pegada.jpg" alt="Camiseta Pegada">
                 </div>
                 <div class="card-info">
-                    <span class="tag">Polo</span>
-                    <h3>Polo Custom Hype</h3>
-                    <div class="price">12.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                    <h3>Camiseta Pegada</h3>
+                    <div class="price">8.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="polo.jpg" alt="Polo">
+                </div>
+                <div class="card-info">
+                    <h3>Polo</h3>
+                    <div class="price">5.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
@@ -238,73 +229,85 @@
                     <img src="camiseta.jpg" alt="Camiseta">
                 </div>
                 <div class="card-info">
-                    <span class="tag">Camiseta</span>
-                    <h3>Camiseta Oversize</h3>
-                    <div class="price">10.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                    <h3>Camiseta</h3>
+                    <div class="price">5.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
 
             <div class="card">
                 <div class="card-img-container">
-                    <img src="camiseta_pegada.jpg" alt="Camiseta Pegada">
+                    <img src="pantalon.jpg" alt="Pantalón">
                 </div>
                 <div class="card-info">
-                    <span class="tag">Camiseta Pegada</span>
-                    <h3>Camiseta Gym Compression</h3>
-                    <div class="price">12.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                    <h3>Pantalón</h3>
+                    <div class="price">5.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <h2 id="pantalones" class="section-title">Pantalones</h2>
-    <div class="container">
-        <div class="grid">
-            <div class="card">
-                <div class="card-img-container">
-                    <img src="pantalones.jpg" alt="Pantalones">
-                </div>
-                <div class="card-info">
-                    <span class="tag">Pantalones</span>
-                    <h3>Pantallón Cargo Streetwear</h3>
-                    <div class="price">15.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <h2 id="chalecos" class="section-title">Chalecos Tacticos</h2>
-    <div class="container">
-        <div class="grid">
             <div class="card">
                 <div class="card-img-container">
                     <img src="chaleco.jpg" alt="Chaleco">
                 </div>
                 <div class="card-info">
-                    <span class="tag">Chaleco</span>
-                    <h3>Chaleco Antibalas Deluxe</h3>
-                    <div class="price">18.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                    <h3>Chaleco</h3>
+                    <div class="price">5.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="mascara.jpg" alt="Máscara">
+                </div>
+                <div class="card-info">
+                    <h3>Máscara</h3>
+                    <div class="price">4.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
                 </div>
             </div>
         </div>
     </div>
 
-    <h2 id="accesorios" class="section-title">Máscaras & Accesorios</h2>
+    <h2 id="armas" class="section-title">Armas</h2>
     <div class="container">
         <div class="grid">
             <div class="card">
                 <div class="card-img-container">
-                    <img src="mascara.jpg" alt="Mascara">
+                    <img src="skin_pistola.jpg" alt="Skin Pistola">
                 </div>
                 <div class="card-info">
-                    <span class="tag">Máscara</span>
-                    <h3>Máscara Clout Goggles</h3>
+                    <h3>Skin Pistola</h3>
+                    <div class="price">5.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 id="packs" class="section-title">Packs 🔥</h2>
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="pack1.jpg" alt="Pack 1">
+                </div>
+                <div class="card-info">
+                    <h3>Pantalón + Camiseta</h3>
                     <div class="price">8.00 €</div>
-                    <a href="#" target="_blank" class="btn-buy">Adquirir Prenda</a>
+                    <a href="#" target="_blank" class="btn-buy">Comprar Pack</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-img-container">
+                    <img src="pack2.jpg" alt="Pack 2">
+                </div>
+                <div class="card-info">
+                    <h3>Pantalón + Camiseta Pegada</h3>
+                    <div class="price">10.00 €</div>
+                    <a href="#" target="_blank" class="btn-buy">Comprar Pack</a>
                 </div>
             </div>
         </div>
